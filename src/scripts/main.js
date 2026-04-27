@@ -7,7 +7,7 @@ const resetButton = document.querySelector(".reset-btn");
 const tipPerPerson = document.querySelector("#tipPerPerson");
 const totalPerPerson = document.querySelector("#totalPerPerson");
 
-let tipPercentage = 20;
+let tipPercentage = 0;
 let billAmount = 0;
 let numPeople = 0;
 let tipAmount = 0;
@@ -17,7 +17,7 @@ function toggleClass(list, element, className) {
     item.classList.remove(className);
   });
 
-  element.classList.add(className);
+  element?.classList.add(className);
 }
 
 function calculateTip() {
@@ -29,9 +29,20 @@ function setTotals(tipAmount, totalAmount) {
   totalPerPerson.textContent = `$${totalAmount.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
+function updateAll() {
+  if (billAmount > 0 && numPeople > 0 && tipPercentage > 0) {
+    calculateTip();
+    let total = billAmount + tipAmount;
+    setTotals(tipAmount / numPeople, total / numPeople);
+  }
+}
+
 tipButtons?.forEach((tipButton) => {
   tipButton.addEventListener("click", () => {
     toggleClass(tipButtons, tipButton, "active");
+    tipPercentage = Number(tipButton.getAttribute("data-tip-percentage"));
+    updateAll();
+    inputCustomTip.value = "";
   });
 });
 
@@ -41,18 +52,16 @@ resetButton?.addEventListener("click", () => {
 
 inputBill?.addEventListener("change", (e) => {
   billAmount = Number(e.target.value);
-  if (billAmount > 0 && numPeople > 0) {
-    calculateTip();
-    let total = billAmount + tipAmount;
-    setTotals(tipAmount / numPeople, total / numPeople);
-  }
+  updateAll();
 });
 
 inputNumPeople?.addEventListener("change", (e) => {
   numPeople = Number(e.target.value);
-  if (billAmount > 0 && numPeople > 0) {
-    calculateTip();
-    let total = billAmount + tipAmount;
-    setTotals(tipAmount / numPeople, total / numPeople);
-  }
+  updateAll();
+});
+
+inputCustomTip?.addEventListener("change", (e) => {
+  tipPercentage = Number(e.target.value);
+  toggleClass(tipButtons, undefined, "active");
+  updateAll();
 });
