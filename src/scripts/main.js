@@ -7,9 +7,10 @@ const resetButton = document.querySelector(".reset-btn");
 const tipPerPerson = document.querySelector("#tipPerPerson");
 const totalPerPerson = document.querySelector("#totalPerPerson");
 
-let tipPercentage = 0;
+let tipPercentage = 20;
 let billAmount = 0;
 let numPeople = 0;
+let tipAmount = 0;
 
 function toggleClass(list, element, className) {
   list.forEach((item) => {
@@ -19,16 +20,8 @@ function toggleClass(list, element, className) {
   element.classList.add(className);
 }
 
-function setTipPercentage(percentage) {
-  tipPercentage = percentage;
-}
-
 function calculateTip() {
-  if (billAmount > 0) {
-    return billAmount * (tipPercentage / 100);
-  } else {
-    return -1;
-  }
+  tipAmount = billAmount * (tipPercentage / 100);
 }
 
 function setTotals(tipAmount, totalAmount) {
@@ -44,4 +37,22 @@ tipButtons?.forEach((tipButton) => {
 
 resetButton?.addEventListener("click", () => {
   setTotals(0, 0);
+});
+
+inputBill.addEventListener("change", (e) => {
+  billAmount = Number(e.target.value);
+  if (billAmount > 0 && numPeople > 0) {
+    calculateTip();
+    let total = billAmount + tipAmount;
+    setTotals(tipAmount / numPeople, total / numPeople);
+  }
+});
+
+inputNumPeople.addEventListener("change", (e) => {
+  numPeople = Number(e.target.value);
+  if (billAmount > 0 && numPeople > 0) {
+    calculateTip();
+    let total = billAmount + tipAmount;
+    setTotals(tipAmount / numPeople, total / numPeople);
+  }
 });
