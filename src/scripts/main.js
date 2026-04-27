@@ -39,7 +39,7 @@ resetButton?.addEventListener("click", () => {
   setTotals(0, 0);
 });
 
-inputBill.addEventListener("change", (e) => {
+inputBill?.addEventListener("change", (e) => {
   billAmount = Number(e.target.value);
   if (billAmount > 0 && numPeople > 0) {
     calculateTip();
@@ -48,7 +48,7 @@ inputBill.addEventListener("change", (e) => {
   }
 });
 
-inputNumPeople.addEventListener("change", (e) => {
+inputNumPeople?.addEventListener("change", (e) => {
   numPeople = Number(e.target.value);
   if (billAmount > 0 && numPeople > 0) {
     calculateTip();
