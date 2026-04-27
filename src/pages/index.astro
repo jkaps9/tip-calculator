@@ -79,29 +79,31 @@ import "../styles/global.css";
             </div>
           </div>
           <div class="results">
-            <div class="row">
-              <div class="col">
-                <p>Tip Amount</p>
-                <p class="per-person">/ person</p>
+            <div class="results__details">
+              <div class="row">
+                <div class="col">
+                  <p>Tip Amount</p>
+                  <p class="per-person">/ person</p>
+                </div>
+                <p
+                  class="amount"
+                  id="tipPerPerson"
+                >
+                  $4.27
+                </p>
               </div>
-              <p
-                class="amount"
-                id="tipPerPerson"
-              >
-                $4.27
-              </p>
-            </div>
-            <div class="row">
-              <div class="col">
-                <p>Total</p>
-                <p class="per-person">/ person</p>
+              <div class="row">
+                <div class="col">
+                  <p>Total</p>
+                  <p class="per-person">/ person</p>
+                </div>
+                <p
+                  class="amount"
+                  id="totalPerPerson"
+                >
+                  $32.79
+                </p>
               </div>
-              <p
-                class="amount"
-                id="totalPerPerson"
-              >
-                $32.79
-              </p>
             </div>
             <button class="btn reset-btn">Reset</button>
           </div>
@@ -164,6 +166,7 @@ import "../styles/global.css";
   .reset-btn {
     background: var(--color-primary);
     color: var(--color-primary-dark);
+    text-transform: uppercase;
     &:hover {
       background: var(--color-primary-light);
     }
@@ -209,6 +212,42 @@ import "../styles/global.css";
     left: 1rem;
     bottom: 0.5rem;
     transform: translateY(-50%);
+  }
+
+  .results {
+    background: var(--color-primary-dark);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .results p {
+    color: var(--color-neutral-0);
+    font-size: 1rem;
+
+    &.per-person {
+      color: var(--color-neutral-400);
+      font-size: 0.75rem;
+    }
+
+    &.amount {
+      color: var(--color-primary);
+      font-size: 2rem;
+    }
+  }
+
+  .row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .results__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   @media (min-width: 48rem) {
