@@ -23,12 +23,104 @@ import "../styles/global.css";
   </head>
   <body>
     <main>
-      <div class="logo">
-        <img
-          src="/images/logo.svg"
-          alt="Splitter logo"
-        />
-      </div>
+      <section class="tip-calculator">
+        <div class="logo">
+          <img
+            src="/images/logo.svg"
+            alt="Splitter logo"
+          />
+        </div>
+
+        <div class="card">
+          <div class="input">
+            <div class="input-group">
+              <label for="bill">Bill</label>
+              <input
+                id="bill"
+                name="bill"
+                placeholder="0"
+                type="number"
+              />
+            </div>
+            <div class="input-group">
+              <label for="customTip">Select Tip %</label>
+              <div class="tip-group">
+                <button class="tip-btn">5%</button>
+                <button class="tip-btn">10%</button>
+                <button class="tip-btn">15%</button>
+                <button class="tip-btn">25%</button>
+                <button class="tip-btn">50%</button>
+                <input
+                  type="number"
+                  id="customTip"
+                  name="customTip"
+                  placeholder="Custom"
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="numPeople">Number of People</label>
+              <input
+                id="numPeople"
+                name="numPeople"
+                type="number"
+                placeholder="0"
+              />
+            </div>
+          </div>
+          <div class="output"></div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
+
+<style>
+  section {
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .tip-group {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tip-btn {
+    background: var(--color-primary-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--color-neutral-0);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+
+    &.active,
+    &:hover {
+      background: var(--color-primary);
+    }
+  }
+
+  label {
+    color: var(--color-primary-dark);
+    display: block;
+    font-size: 1rem;
+  }
+
+  input {
+    background: var(--color-neutral-50);
+    border: none;
+    border-radius: var(--border-radius);
+
+    &::placeholder {
+      color: var(--color-neutral-400);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .tip-group {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
