@@ -34,12 +34,15 @@ import "../styles/global.css";
         <div class="card">
           <div class="input">
             <div class="input-group">
-              <label for="bill">Bill</label>
+              <label for="bill">
+                Bill <span class="error-message">Can't be zero</span>
+              </label>
               <input
                 id="bill"
                 name="bill"
                 placeholder="0"
                 type="number"
+                required
               />
               <img
                 src="/images/icon-dollar.svg"
@@ -64,12 +67,17 @@ import "../styles/global.css";
               </div>
             </div>
             <div class="input-group">
-              <label for="numPeople">Number of People</label>
+              <label for="numPeople">
+                Number of People <span class="error-message">
+                  Can't be zero
+                </span>
+              </label>
               <input
                 id="numPeople"
                 name="numPeople"
                 type="number"
                 placeholder="0"
+                required
               />
               <img
                 src="/images/icon-person.svg"
@@ -178,15 +186,27 @@ import "../styles/global.css";
 
   label {
     color: var(--color-neutral-500);
-    display: block;
+    display: flex;
+    justify-content: space-between;
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0.5rem;
+
+    .error-message {
+      color: var(--color-orange);
+      display: none;
+    }
+  }
+
+  .input-group:has(input:user-invalid) {
+    .error-message {
+      display: block;
+    }
   }
 
   input {
     background: var(--color-neutral-50);
-    border: none;
+    border: 2px solid transparent;
     border-radius: var(--border-radius);
     color: var(--color-primary-dark);
     padding: 0.5rem 1rem;
@@ -196,6 +216,19 @@ import "../styles/global.css";
     &::placeholder {
       color: var(--color-primary-dark);
       opacity: 0.35;
+    }
+
+    &:focus-visible {
+      border: 2px solid var(--color-primary);
+    }
+
+    &:hover {
+      border: 2px solid var(--color-primary);
+      cursor: pointer;
+    }
+
+    &:user-invalid {
+      border-color: var(--color-orange);
     }
 
     &#customTip {
