@@ -48,6 +48,10 @@ tipButtons?.forEach((tipButton) => {
 
 resetButton?.addEventListener("click", () => {
   setTotals(0, 0);
+  toggleClass(tipButtons, undefined, "active");
+  inputBill.value = 0;
+  inputCustomTip.value = "";
+  inputNumPeople.value = 0;
 });
 
 inputBill?.addEventListener("change", (e) => {
