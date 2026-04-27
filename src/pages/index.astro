@@ -104,7 +104,9 @@ import "../styles/global.css";
     flex: 1;
     flex-direction: column;
     gap: 2rem;
-    padding: 2rem 1.5rem;
+    max-width: 608px;
+    padding: clamp(2rem, 1.0458rem + 4.0712vw, 3rem)
+      clamp(1.5rem, -1.8397rem + 14.2494vw, 5rem);
   }
 
   .input {
@@ -175,9 +177,21 @@ import "../styles/global.css";
     transform: translateY(-50%);
   }
 
-  @media (min-width: 64rem) {
+  @media (min-width: 48rem) {
+    .card {
+      border-radius: 1.5rem;
+      flex: 0;
+    }
     .tip-group {
       grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .card {
+      flex-direction: row;
+      max-width: 920px;
+      padding: 2rem;
     }
   }
 </style>
