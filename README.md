@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# Frontend Mentor - Tip calculator app solution
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Table of contents
 
-## 🚀 Project Structure
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-Inside of your Astro project, you'll see the following folders and files:
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Overview
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### The challenge
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Users should be able to:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Calculate the correct tip and total cost of the bill per person
 
-## 🧞 Commands
+### Screenshot
 
-All commands are run from the root of the project, from a terminal:
+<img src="./screenshot.png" alt="screenshot" width="500"/>
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Links
 
-## 👀 Want to learn more?
+- Solution URL: [https://github.com/jkaps9/tip-calculator](https://github.com/jkaps9/tip-calculator)
+- Live Site URL: [https://jkaps9.github.io/tip-calculator/](https://jkaps9.github.io/tip-calculator/)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [Astro](https://astro.build) - Static Site Generator
+
+## Author
+
+- Frontend Mentor - [@jkaps9](https://www.frontendmentor.io/profile/jkaps9)
