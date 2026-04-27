@@ -219,8 +219,9 @@ import "../styles/global.css";
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 2rem;
-    padding: 1.5rem;
+    padding: 1.5rem clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
   }
 
   .results p {
@@ -262,8 +263,10 @@ import "../styles/global.css";
 
   @media (min-width: 80rem) {
     .card {
-      flex-direction: row;
-      max-width: 920px;
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 3rem;
+      max-width: 950px;
       padding: 2rem;
     }
   }
